@@ -30,7 +30,7 @@ async function getChartData() {
  */
 async function getDepositData() {
   // return await api<ComponentProps<typeof Dashboard>['deposit']>('/dashboard/deposit');
-  const depo: DepositData = await api<ComponentProps<typeof Dashboard>['deposit']>('/dashboard/deposit');
+  // const depo: DepositData = await api<ComponentProps<typeof Dashboard>['deposit']>('/dashboard/deposit');
   const resultdepo: DepositData = {
     data: {
       amount: 3024.0,

@@ -22,4 +22,4 @@ const meta = {
 
 export default meta;
 
-export const Chart: StoryObj<typeof meta> = {};
+export const Deposit: StoryObj<typeof meta> = {};

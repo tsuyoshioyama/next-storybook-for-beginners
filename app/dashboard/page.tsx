@@ -29,15 +29,15 @@ async function getChartData() {
  * 売上情報の取得
  */
 async function getDepositData() {
-  // return await api<ComponentProps<typeof Dashboard>['deposit']>('/dashboard/deposit');
-  // const depo: DepositData = await api<ComponentProps<typeof Dashboard>['deposit']>('/dashboard/deposit');
-  const resultdepo: DepositData = {
-    data: {
-      amount: 3024.0,
-      date: '15 March, 2019',
-    },
-  };
-  return await Promise.resolve(resultdepo);
+  return await api<ComponentProps<typeof Dashboard>['deposit']>('/dashboard/deposit');
+  // 出力確認用のためコメントアウト
+  // const resultdepo: DepositData = {
+  //   data: {
+  //     amount: 3024.0,
+  //     date: '15 March, 2019',
+  //   },
+  // };
+  // return await Promise.resolve(resultdepo);
 }
 
 /**

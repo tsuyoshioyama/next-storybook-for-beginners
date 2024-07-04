@@ -1,7 +1,6 @@
 import { ComponentProps } from 'react';
 
 import { api } from 'lib/api';
-import { DepositData } from './types';
 
 import Dashboard from './dashboard';
 
@@ -29,15 +28,7 @@ async function getChartData() {
  * 売上情報の取得
  */
 async function getDepositData() {
-  return await api<ComponentProps<typeof Dashboard>['deposit']>('dashboard/deposit');
-  // 出力確認用のためコメントアウト
-  // const resultdepo: DepositData = {
-  //   data: {
-  //     amount: 3024.0,
-  //     date: '15 March, 2019',
-  //   },
-  // };
-  // return await Promise.resolve(resultdepo);
+  return await api<ComponentProps<typeof Dashboard>['deposit']>('/dashboard/deposit');
 }
 
 /**

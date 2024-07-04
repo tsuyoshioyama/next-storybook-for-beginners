@@ -29,7 +29,7 @@ async function getChartData() {
  * 売上情報の取得
  */
 async function getDepositData() {
-  return await api<ComponentProps<typeof Dashboard>['deposit']>('/dashboard/deposit');
+  return await api<ComponentProps<typeof Dashboard>['deposit']>('dashboard/deposit');
   // 出力確認用のためコメントアウト
   // const resultdepo: DepositData = {
   //   data: {

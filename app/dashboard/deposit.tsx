@@ -3,6 +3,8 @@ import Link from '@mui/material/Link';
 import { DepositData } from './types';
 
 export default function Deposit({ data }: Readonly<DepositData>) {
+  const date = new Date(data.date);
+  const dateString = date.toLocaleString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
   return (
     <Paper className="flex h-48 p-2">
       <div className="relative">
@@ -10,15 +12,14 @@ export default function Deposit({ data }: Readonly<DepositData>) {
           Recent Deposits
         </Typography>
         <Typography variant="h4" color="black">
-          {/* 修正に伴い、データの取得ができないため、表示をコメントアウトしました。 */}${' '}
-          {/* {data.amount.toLocaleString(undefined, {
+          $
+          {data.amount.toLocaleString(undefined, {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2,
-          })} */}
+          })}
         </Typography>
         <Typography variant="body2" color="textSecondary">
-          {/* 修正に伴い、データの取得ができないため、表示をコメントアウトしました。 */}
-          on {/* {data.date} */}
+          on {dateString}
         </Typography>
         <div className="absolute bottom-0">
           <Link href="#"> View balance </Link>

@@ -41,7 +41,7 @@ const meta = {
       },
       {
         id: 5,
-        date: 'Fri Mar 16 2019 20:34:41 GMT+0900 (日本標準時)',
+        date: 'Fri Mar 15 2019 20:34:41 GMT+0900 (日本標準時)',
         name: 'Bruce Springsteen',
         shipTo: 'Long Branch, NJ',
         paymentMethod: 'VISA ⠀•••• 5919',

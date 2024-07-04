@@ -13,23 +13,23 @@ export default function Order({ data }: Readonly<OrderData>) {
         <div className="text-justify">
           <table className="w-full table-fixed border-collapse">
             <thead>
-              <tr>
-                <th>Date</th>
-                <th>Name</th>
-                <th>Ship To</th>
-                <th>Payment Method</th>
+              <tr className="table-header">
+                <th className="table-data">Date</th>
+                <th className="table-data">Name</th>
+                <th className="table-data">Ship To</th>
+                <th className="table-data">Payment Method</th>
                 <th className="table-last">Sale Amount</th>
               </tr>
             </thead>
             <tbody>
               {data.map((order) => (
-                <tr key={order.id}>
-                  <td>
-                    {order.date.split(' ')[2]} {order.date.split(' ')[1]}, {order.date.split(' ')[3]}
+                <tr key={order.id} className="table-body">
+                  <td className="table-data">
+                    {order.date.split(' ')[2]} {order.date.split(' ')[1]},{order.date.split(' ')[3]}
                   </td>
-                  <td>{order.name}</td>
-                  <td>{order.shipTo}</td>
-                  <td>{order.paymentMethod}</td>
+                  <td className="table-data">{order.name}</td>
+                  <td className="table-data">{order.shipTo}</td>
+                  <td className="table-data">{order.paymentMethod}</td>
                   <td className="table-last">${order.amount}</td>
                 </tr>
               ))}

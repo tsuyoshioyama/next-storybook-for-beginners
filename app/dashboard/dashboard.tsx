@@ -12,16 +12,16 @@ export default function Dashboard({
   console.log(chart, deposit, order);
   return (
     <div>
-      <div className="flex justify-center">
-        {/* chart  */}
-        <div className="chart w-2/4">{<Chart data={chart.data} />}</div>
+      <div className="grid">
+        <div className="flex">
+          {/* chart  */}
+          <div className="chart md:8 lg:9">{<Chart data={chart.data} />}</div>
 
-        {/* deposits */}
-        <div className="deposit w-1/5 pl-10">{<Deposit data={deposit.data} />}</div>
-      </div>
-      <div>
-        {/* recent orders */}
-        <Order data={order.data} />
+          {/* deposits */}
+          <div className="deposit md:4 lg:3 pl-10">{<Deposit data={deposit.data} />}</div>
+        </div>
+        {/* orders */}
+        <div className="order xs:12 mt-10"> {<Order data={order.data} />} </div>
       </div>
     </div>
   );

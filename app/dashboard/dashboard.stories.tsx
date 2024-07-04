@@ -26,7 +26,7 @@ const meta = {
       data: [
         {
           id: 1,
-          date: '16 Mar, 2019',
+          date: 'Sat Mar 16 2019 20:34:41 GMT+0900 (日本標準時)',
           name: 'Elvis Presley',
           shipTo: 'Tupelo, MS',
           paymentMethod: 'VISA ⠀•••• 3719',
@@ -36,7 +36,7 @@ const meta = {
     },
   },
   parameters: {
-    layout: 'centered',
+    // layout: 'centered',
   },
   decorators: [
     (Story) => (

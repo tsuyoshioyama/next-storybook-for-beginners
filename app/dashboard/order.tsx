@@ -25,7 +25,7 @@ export default function Order({ data }: Readonly<OrderData>) {
               {data.map((order) => (
                 <tr key={order.id}>
                   <td>
-                    {order.date.split(' ')[2]} {order.date.split(' ')[1]},{order.date.split(' ')[3]}
+                    {order.date.split(' ')[2]} {order.date.split(' ')[1]}, {order.date.split(' ')[3]}
                   </td>
                   <td>{order.name}</td>
                   <td>{order.shipTo}</td>

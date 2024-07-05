@@ -32,15 +32,23 @@ const meta = {
           paymentMethod: 'VISA ⠀•••• 3719',
           amount: 312.44,
         },
+        {
+          id: 2,
+          date: 'Sat Mar 16 2019 20:34:41 GMT+0900 (日本標準時)',
+          name: 'Paul McCartney',
+          shipTo: 'London, UK',
+          paymentMethod: 'VISA ⠀•••• 2574',
+          amount: 866.99,
+        },
       ],
     },
   },
   parameters: {
-    // layout: 'centered',
+    layout: 'centered',
   },
   decorators: [
     (Story) => (
-      <div className="w-[1500px]">
+      <div className="w-[1000px]">
         <Story />
       </div>
     ),

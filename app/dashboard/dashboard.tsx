@@ -11,18 +11,18 @@ export default function Dashboard({
   // propsとして渡す
   console.log(chart, deposit, order);
   return (
-    <div>
-      <div className="grid">
-        <div className="flex">
-          {/* chart  */}
-          <div className="chart md:8 lg:9">{<Chart data={chart.data} />}</div>
+    <div className="mx-auto grid w-3/4 w-auto pl-6 pr-6">
+      <div className="grid grid-cols-2">
+        {/* chart  */}
+        <div className="col-xs-12 col-md-8 col-lg-9 col-start-1 col-end-3 pl-6 pt-6">{<Chart data={chart.data} />}</div>
 
-          {/* deposits */}
-          <div className="deposit md:4 lg:3 pl-10">{<Deposit data={deposit.data} />}</div>
+        {/* deposits */}
+        <div className="col-xs-12 col-md-4 col-lg-3 col-start-3 col-end-4 pl-6 pt-6">
+          {<Deposit data={deposit.data} />}
         </div>
-        {/* orders */}
-        <div className="order xs:12 mt-10"> {<Order data={order.data} />} </div>
       </div>
+      {/* orders */}
+      <div className="col-xs-12 pl-6 pt-6"> {<Order data={order.data} />} </div>
     </div>
   );
 }

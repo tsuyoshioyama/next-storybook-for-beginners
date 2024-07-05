@@ -5,8 +5,8 @@ import { OrderData } from './types';
 
 export default function Order({ data }: Readonly<OrderData>) {
   return (
-    <Paper className="flex h-80 p-2">
-      <div className="relative pl-1 pr-1 pt-1">
+    <Paper className="flex p-2">
+      <div className="pl-1 pr-1 pt-1">
         <Typography component="h2" variant="h6" color="primary" gutterBottom>
           Recent Orders
         </Typography>
@@ -36,7 +36,7 @@ export default function Order({ data }: Readonly<OrderData>) {
             </tbody>
           </table>
         </div>
-        <div className="absolute bottom-0">
+        <div className="pb-2 pt-6">
           <Link href="#"> See more orders </Link>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import { Paper, Typography } from '@mui/material';
 import Link from '@mui/material/Link';
+
 import './order.css';
 import { OrderData } from './types';
 

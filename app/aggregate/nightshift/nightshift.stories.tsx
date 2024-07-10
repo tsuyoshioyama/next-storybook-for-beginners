@@ -3,23 +3,27 @@ import { Meta, StoryObj } from '@storybook/react';
 import Nightshift from './nightshift';
 
 const meta = {
-  title: 'totalling/Totalling',
+  title: 'nightshift/Aggregate',
   component: Nightshift,
   args: {
-    data: [
-      {
-        name: '八尋祐輝',
-        count: 1,
+    nightshift: {
+      data: [
+        {
+          name: '八尋祐輝',
+          count: 1,
+        },
+        {
+          name: '大山強志',
+          count: 7,
+        },
+      ],
+    },
+    aggregateDate: {
+      date: {
+        startDate: '2024 / 04 / 01',
+        endDate: '2024 / 04 / 31',
       },
-      {
-        name: '大山強志',
-        count: 7,
-      },
-    ],
-    // date: {
-    //   startDate: '2022-01-01',
-    //   endDate: '2022-01-31',
-    // },
+    },
   },
   parameters: {
     layout: 'fullscreen',
@@ -28,4 +32,4 @@ const meta = {
 
 export default meta;
 
-export const Main: StoryObj<typeof meta> = {};
+export const Aggregate: StoryObj<typeof meta> = {};

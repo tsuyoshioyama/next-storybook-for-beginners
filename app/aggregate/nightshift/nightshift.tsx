@@ -1,17 +1,20 @@
 import { Paper, Table, TableRow, Typography } from '@mui/material';
 
-import { AggregateData } from './types';
+import { AggregateData, Date } from './types';
 
-export default function Totalling(data: AggregateData) {
+export default function Aggregate({ nightshift, aggregateDate }: { nightshift: AggregateData; aggregateDate: Date }) {
+  console.log(nightshift, aggregateDate);
   return (
     <div>
-      <div className="bg-red-300 pb-10 pt-5">
+      <div className="pb-10 pt-5">
         <Typography component="h3" variant="h5" color="primary" className="mb-6 text-center font-bold">
           夜間勤務集計
         </Typography>
         <div className="mb-3 flex rounded bg-indigo-50 px-5 py-3">
-          <Typography className="">集計期間 :</Typography>
-          <Typography className="">日付</Typography>
+          <Typography>集計期間 :</Typography>
+          <Typography className="ml-3">
+            {aggregateDate.date.startDate} ～ {aggregateDate.date.endDate}
+          </Typography>
         </div>
         <Paper className="px-10 pb-10 pt-5 shadow-lg">
           <Table className="w-full table-fixed border-collapse">
@@ -28,7 +31,7 @@ export default function Totalling(data: AggregateData) {
               </TableRow>
             </thead>
             <tbody>
-              {data.data.map((user) => (
+              {nightshift.data.map((user) => (
                 <TableRow
                   sx={{
                     borderBottom: 1,

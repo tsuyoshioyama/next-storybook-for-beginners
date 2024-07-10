@@ -1,34 +1,26 @@
+import { ComponentProps } from 'react';
+
+import { api } from 'lib/api';
+
 import Nightshift from './nightshift';
-import { AggregateData } from './types';
+import { Date } from './types';
 
 export default async function Page() {
-  const aggregate = await getTotallingData();
-  //   const date = await getData();
-  return <Nightshift data={aggregate.data} />;
+  const aggregate = await getAggregateData();
+  const aggregateDate = await getData();
+  return <Nightshift nightshift={aggregate} aggregateDate={aggregateDate} />;
 }
 
-async function getTotallingData(): Promise<AggregateData> {
-  const response: AggregateData = {
-    data: [
-      {
-        name: '八尋祐輝',
-        count: 1,
-      },
-      {
-        name: '大山強志',
-        count: 7,
-      },
-    ],
+async function getAggregateData() {
+  return await api<ComponentProps<typeof Nightshift>['nightshift']>('aggregate/nightshift');
+}
+
+async function getData(): Promise<Date> {
+  const result: Date = {
+    date: {
+      startDate: '2024 / 04 / 01',
+      endDate: '2024 / 04 / 31',
+    },
   };
-  return await Promise.resolve(response);
+  return await Promise.resolve(result);
 }
-
-// async function getData() {
-//   const result: Date = {
-//     date: {
-//       startDate: '2022-01-01',
-//       endDate: '2022-01-31',
-//     },
-//   };
-//   return await Promise.resolve(result);
-// }

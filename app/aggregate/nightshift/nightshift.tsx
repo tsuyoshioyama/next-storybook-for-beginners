@@ -19,13 +19,7 @@ export default function Aggregate({ nightshift, aggregateDate }: { nightshift: A
         <Paper className="px-10 pb-10 pt-5 shadow-lg">
           <Table className="w-full table-fixed border-collapse">
             <thead>
-              <TableRow
-                sx={{
-                  borderBottom: 1,
-                  borderColor: 'divider',
-                }}
-                className="px-2 text-blue-600"
-              >
+              <TableRow className="border-x-0 border-b-[1px] border-t-0 border-solid border-slate-200 px-2 text-blue-600">
                 <th className="py-2 text-left">社員名</th>
                 <th className="py-2 text-left">夜間勤務日数</th>
               </TableRow>
@@ -33,12 +27,8 @@ export default function Aggregate({ nightshift, aggregateDate }: { nightshift: A
             <tbody>
               {nightshift.data.map((user) => (
                 <TableRow
-                  sx={{
-                    borderBottom: 1,
-                    borderColor: 'divider',
-                  }}
                   key={user.name}
-                  className="px-2"
+                  className="border-x-0 border-b-[1px] border-t-0 border-solid border-slate-200 px-2"
                 >
                   <td className="py-2">{user.name}</td>
                   <td className="py-2">{user.count}</td>

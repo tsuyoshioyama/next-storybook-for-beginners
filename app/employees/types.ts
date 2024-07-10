@@ -11,3 +11,12 @@ export interface EmployeesData {
     role: string;
   }[];
 }
+
+export interface PartnersData {
+  data: {
+    id: number;
+    name: string;
+    initial: string;
+    phone: string;
+  }[];
+}

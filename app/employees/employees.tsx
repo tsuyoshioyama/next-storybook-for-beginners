@@ -1,7 +1,7 @@
 'use client';
 
 import AddIcon from '@mui/icons-material/Add';
-import { Box, Button, Paper, Tab, Tabs, Typography } from '@mui/material';
+import { Box, Button, Paper, Tab, TableRow, Tabs, Typography } from '@mui/material';
 import * as React from 'react';
 
 import { EmployeesData } from './types';
@@ -35,7 +35,7 @@ function a11yProps(index: number) {
   };
 }
 
-export default function Employees({ data }: EmployeesData) {
+export default function Employees({ employees }: Readonly<{ employees: EmployeesData }>) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -70,25 +70,28 @@ export default function Employees({ data }: EmployeesData) {
                 </tr>
               </thead>
               <tbody>
-                {data.map((employee) => (
-                  <tr
+                {employees.data.map((employee) => (
+                  <TableRow
                     key={employee.id}
                     className="border-x-0 border-b-[1px] border-t-0 border-solid border-slate-400 p-2"
                   >
                     <td className="flex px-5 py-3">
-                      <div className={'w-[24px] rounded-full text-center' + ' ' + `${employee.icon.backgroundColor}`}>
-                        {employee.icon.value}
-                      </div>
-                      <div className="pl-5">{employee.name}</div>
+                      <Typography
+                        className="w-[24px] rounded-full text-center"
+                        // sx={{ backgroundColor: `${employee.color}` }}
+                      >
+                        {employee.initial}
+                      </Typography>
+                      <Typography className="pl-5">{employee.name}</Typography>
                     </td>
                     <td className="text-left">{employee.email}</td>
-                    <td className="text-left">{employee.phoneNumber}</td>
+                    <td className="text-left">{employee.phone}</td>
                     <td className="text-right">
                       <Button variant="outlined" href="#">
                         編集
                       </Button>
                     </td>
-                  </tr>
+                  </TableRow>
                 ))}
               </tbody>
             </table>

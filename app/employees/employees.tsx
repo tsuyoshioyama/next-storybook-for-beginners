@@ -1,10 +1,10 @@
 'use client';
 
 import AddIcon from '@mui/icons-material/Add';
-import { Box, Button, Paper, Tab, Tabs, Typography } from '@mui/material';
+import { Box, Button, Paper, Tab, TableRow, Tabs, Typography } from '@mui/material';
 import * as React from 'react';
 
-import { EmployeesData } from './types';
+import { EmployeesData, PartnersData } from './types';
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -35,7 +35,10 @@ function a11yProps(index: number) {
   };
 }
 
-export default function Employees({ data }: EmployeesData) {
+export default function Employees({
+  employees,
+  partners,
+}: Readonly<{ employees: EmployeesData; partners: PartnersData }>) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -70,32 +73,64 @@ export default function Employees({ data }: EmployeesData) {
                 </tr>
               </thead>
               <tbody>
-                {data.map((employee) => (
-                  <tr
+                {employees.data.map((employee) => (
+                  <TableRow
                     key={employee.id}
                     className="border-x-0 border-b-[1px] border-t-0 border-solid border-slate-400 p-2"
                   >
                     <td className="flex px-5 py-3">
-                      <div className={'w-[24px] rounded-full text-center' + ' ' + `${employee.icon.backgroundColor}`}>
-                        {employee.icon.value}
-                      </div>
-                      <div className="pl-5">{employee.name}</div>
+                      <Typography className="w-[24px] rounded-full text-center">{employee.initial}</Typography>
+                      <Typography className="pl-5">{employee.name}</Typography>
                     </td>
                     <td className="text-left">{employee.email}</td>
-                    <td className="text-left">{employee.phoneNumber}</td>
+                    <td className="text-left">{employee.phone}</td>
                     <td className="text-right">
                       <Button variant="outlined" href="#">
                         編集
                       </Button>
                     </td>
-                  </tr>
+                  </TableRow>
                 ))}
               </tbody>
             </table>
           </Paper>
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
-          Tab2
+          <Paper className="px-10 pb-10 pt-5">
+            <Box className="mb-5 text-right">
+              <Button variant="contained" color="primary" size="medium" endIcon={<AddIcon />} href="#">
+                協力会社を登録
+              </Button>
+            </Box>
+            <table className="w-full table-fixed border-collapse">
+              <thead>
+                <tr className="border-x-0 border-b-[1px] border-t-0 border-solid border-slate-400 px-2 text-blue-600">
+                  <th className="py-2 text-left">協力会社名</th>
+                  <th className="py-2 text-left">電話番号</th>
+                  <th className="w-16 text-center"></th>
+                </tr>
+              </thead>
+              <tbody>
+                {partners.data.map((partner) => (
+                  <TableRow
+                    key={partner.id}
+                    className="border-x-0 border-b-[1px] border-t-0 border-solid border-slate-400 p-2"
+                  >
+                    <td className="flex px-5 py-3">
+                      <Typography className="w-[40px] rounded-full text-center">{partner.initial}</Typography>
+                      <Typography className="pl-5">{partner.name}</Typography>
+                    </td>
+                    <td className="text-left">{partner.phone}</td>
+                    <td className="text-right">
+                      <Button variant="outlined" href="#">
+                        編集
+                      </Button>
+                    </td>
+                  </TableRow>
+                ))}
+              </tbody>
+            </table>
+          </Paper>
         </CustomTabPanel>
       </Box>
     </Box>

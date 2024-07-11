@@ -1,12 +1,22 @@
 export interface EmployeesData {
   data: {
     id: number;
-    icon: {
-      value: string | null;
-      backgroundColor: string | undefined;
-    };
     name: string;
     email: string;
-    phoneNumber: string;
+    phone: string;
+    color: string | undefined;
+    initial: string | null;
+    hiredDate: string;
+    isCalendarVisible: boolean;
+    role: string;
+  }[];
+}
+
+export interface PartnersData {
+  data: {
+    id: number;
+    name: string;
+    initial: string;
+    phone: string;
   }[];
 }

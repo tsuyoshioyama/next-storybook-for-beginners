@@ -1,45 +1,20 @@
+import { ComponentProps } from 'react';
+
+import { api } from 'lib/api';
+
 import Employees from './employees';
-import { EmployeesData } from './types';
+import Partners from './employees';
 
 export default async function Page() {
   const employees = await getEmployeesData();
-  return <Employees data={employees.data} />;
+  const partners = await getPartnerData();
+  return <Employees employees={employees} partners={partners} />;
 }
 
 async function getEmployeesData() {
-  const result: EmployeesData = {
-    data: [
-      {
-        id: 1,
-        icon: {
-          value: null,
-          backgroundColor: undefined,
-        },
-        name: 'サンプル',
-        email: 'test@example.com',
-        phoneNumber: '080-1234-1234',
-      },
-      {
-        id: 2,
-        icon: {
-          value: '八',
-          backgroundColor: 'bg-blue-300',
-        },
-        name: '八尋祐輝',
-        email: 'test@example.com',
-        phoneNumber: '080-1234-1234',
-      },
-      {
-        id: 3,
-        icon: {
-          value: '北',
-          backgroundColor: 'bg-red-300',
-        },
-        name: '北島蓮也',
-        email: 'test@example.com',
-        phoneNumber: '080-1234-1234',
-      },
-    ],
-  };
-  return await Promise.resolve(result);
+  return await api<ComponentProps<typeof Employees>['employees']>('employee');
+}
+
+async function getPartnerData() {
+  return await api<ComponentProps<typeof Partners>['partners']>('partner');
 }

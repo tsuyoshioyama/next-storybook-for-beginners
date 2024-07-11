@@ -6,128 +6,65 @@ const meta = {
   title: 'employees/employees',
   component: Employees,
   args: {
-    data: [
-      {
-        id: 1,
-        icon: {
-          value: null,
-          backgroundColor: undefined,
+    employees: {
+      data: [
+        {
+          id: 1,
+          name: 'サンプル',
+          email: 'test@example.com',
+          phone: '080-1234-1234',
+          color: undefined,
+          initial: null,
+          hiredDate: '2021-01-01',
+          isCalendarVisible: true,
+          role: 'admin',
         },
-        name: 'サンプル',
-        email: 'test@example.com',
-        phoneNumber: '080-1234-1234',
-      },
-      {
-        id: 2,
-        icon: {
-          value: '北',
-          backgroundColor: 'bg-red-300',
+        {
+          id: 2,
+          name: '八尋祐輝',
+          email: 'test@example.com',
+          phone: '080-1234-1234',
+          color: '#ff0000',
+          initial: '八',
+          hiredDate: '2021-01-01',
+          isCalendarVisible: true,
+          role: 'admin',
         },
-        name: '北島蓮也',
-        email: 'test@example.com',
-        phoneNumber: '080-1234-1234',
-      },
-      {
-        id: 3,
-        icon: {
-          value: '八',
-          backgroundColor: 'bg-blue-200',
+        {
+          id: 3,
+          name: '北島蓮也',
+          email: 'test@example.com',
+          phone: '080-1234-1234',
+          color: '#00ff00',
+          initial: '北',
+          hiredDate: '2021-01-01',
+          isCalendarVisible: true,
+          role: 'admin',
         },
-        name: '八尋祐輝',
-        email: 'test@example.com',
-        phoneNumber: '080-1234-1234',
-      },
-      {
-        id: 4,
-        icon: {
-          value: '八',
-          backgroundColor: 'bg-blue-200',
+      ],
+    },
+    partners: {
+      data: [
+        {
+          id: 1,
+          name: '赤星設備',
+          initial: '赤',
+          phone: '080-1234-1234',
         },
-        name: '八尋祐輝',
-        email: 'test@example.com',
-        phoneNumber: '080-1234-1234',
-      },
-      {
-        id: 5,
-        icon: {
-          value: '八',
-          backgroundColor: 'bg-blue-200',
+        {
+          id: 2,
+          name: '吉川空調設備',
+          initial: '吉',
+          phone: '080-1234-1234',
         },
-        name: '八尋祐輝',
-        email: 'test@example.com',
-        phoneNumber: '080-1234-1234',
-      },
-      {
-        id: 6,
-        icon: {
-          value: '八',
-          backgroundColor: 'bg-blue-200',
+        {
+          id: 3,
+          name: '田中空調設備',
+          initial: '田',
+          phone: '080-1234-1234',
         },
-        name: '八尋祐輝',
-        email: 'test@example.com',
-        phoneNumber: '080-1234-1234',
-      },
-      {
-        id: 7,
-        icon: {
-          value: '八',
-          backgroundColor: 'bg-blue-200',
-        },
-        name: '八尋祐輝',
-        email: 'test@example.com',
-        phoneNumber: '080-1234-1234',
-      },
-      {
-        id: 8,
-        icon: {
-          value: '八',
-          backgroundColor: 'bg-blue-200',
-        },
-        name: '八尋祐輝',
-        email: 'test@example.com',
-        phoneNumber: '080-1234-1234',
-      },
-      {
-        id: 9,
-        icon: {
-          value: '八',
-          backgroundColor: 'bg-blue-200',
-        },
-        name: '八尋祐輝',
-        email: 'test@example.com',
-        phoneNumber: '080-1234-1234',
-      },
-      {
-        id: 10,
-        icon: {
-          value: '八',
-          backgroundColor: 'bg-blue-200',
-        },
-        name: '八尋祐輝',
-        email: 'test@example.com',
-        phoneNumber: '080-1234-1234',
-      },
-      {
-        id: 11,
-        icon: {
-          value: '八',
-          backgroundColor: 'bg-blue-200',
-        },
-        name: '八尋祐輝',
-        email: 'test@example.com',
-        phoneNumber: '080-1234-1234',
-      },
-      {
-        id: 12,
-        icon: {
-          value: '八',
-          backgroundColor: 'bg-blue-200',
-        },
-        name: '八尋祐輝',
-        email: 'test@example.com',
-        phoneNumber: '080-1234-1234',
-      },
-    ],
+      ],
+    },
   },
   parameters: {
     layout: 'centered',

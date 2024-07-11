@@ -5,7 +5,7 @@ import { PaidVacationData } from './types';
 export default function Paidvacation({ pv, sd }: { pv: PaidVacationData; sd: string }) {
   console.log(pv.data);
   return (
-    <div>
+    <div className="pb-10 pt-5">
       <Typography component="h3" variant="h5" color="primary" className="mb-6 text-center font-bold">
         有給休暇集計
       </Typography>

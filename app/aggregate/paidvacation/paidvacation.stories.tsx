@@ -15,7 +15,9 @@ const meta = {
         },
       ],
     },
-    sd: '2021-01-01',
+    today: new Date()
+      .toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' })
+      .replaceAll('/', '-'),
   },
   parameters: {
     layout: 'fullscreen',

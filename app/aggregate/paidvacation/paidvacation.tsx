@@ -2,7 +2,7 @@ import { Paper, Table, Typography } from '@mui/material';
 
 import { PaidVacationData } from './types';
 
-export default function Paidvacation({ pv, sd }: { pv: PaidVacationData; sd: string }) {
+export default function Paidvacation({ pv, today }: { pv: PaidVacationData; today: string }) {
   console.log(pv.data);
   return (
     <div className="pb-10 pt-5">
@@ -23,7 +23,7 @@ export default function Paidvacation({ pv, sd }: { pv: PaidVacationData; sd: str
               <tr key={pvd.name} className="border-x-0 border-b-[1px] border-t-0 border-solid border-slate-200">
                 <td className="p-2">{pvd.name}</td>
                 <td className="p-2">
-                  {sd} ~ {pvd.aggregationPeriod}
+                  {pvd.aggregationPeriod} ~ {today}
                 </td>
                 <td className="p-2">{pvd.count}</td>
               </tr>

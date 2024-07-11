@@ -6,8 +6,8 @@ import Paidvacation from './paidvacation';
 
 export default async function Page() {
   const paidVacation = await getPaidVactionData();
-  const startDay = await getStartDay();
-  return <Paidvacation pv={paidVacation} sd={startDay} />;
+  const today = await getStartDay();
+  return <Paidvacation pv={paidVacation} today={today} />;
 }
 
 async function getPaidVactionData() {
@@ -15,6 +15,8 @@ async function getPaidVactionData() {
 }
 
 async function getStartDay() {
-  const start: string = '2023-04-01';
-  return await Promise.resolve(start);
+  const today: string = new Date()
+    .toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' })
+    .replaceAll('/', '-');
+  return await Promise.resolve(today);
 }

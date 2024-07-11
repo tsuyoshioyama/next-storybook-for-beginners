@@ -3,13 +3,15 @@ import { ComponentProps } from 'react';
 import { api } from 'lib/api';
 
 import Manhour from './manhour';
-import { ManhourData } from './types';
 
 export default async function Page() {
   const manhour = await getManhourData();
-  return <ManhourData mh={manhour} />;
+  return <Manhour mh={manhour} />;
 }
 
 async function getManhourData() {
-  return await api<ComponentProps<typeof Manhour>['mh']>('aggregate/manhour');
+  const date = new Date()
+    .toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' })
+    .replaceAll('/', '-');
+  return await api<ComponentProps<typeof Manhour>['mh']>('aggregate/manhour/' + date);
 }

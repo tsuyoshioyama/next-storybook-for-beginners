@@ -4,6 +4,6 @@ export interface ManhourData {
     startAt: string;
     endAt: string;
     manHour: number;
-    totalHour: number;
+    totalManHour: number;
   }[];
 }

@@ -5,6 +5,8 @@ import { DefaultAssign } from './types';
 export default function Defaultassign({ da }: { da: DefaultAssign }) {
   const trueStyle = 'h-full w-full p-2 text-base font-bold text-black border-gray-300';
   const falseStyle = 'h-full w-full p-2 text-base font-bold bg-red-50 border-red-300 text-red-500';
+  const trueDate = 'text-black';
+  const falseDate = 'text-red-500';
   const sunday = da.data.sunday ? '平日' : '休日';
   const monday = da.data.monday ? '平日' : '休日';
   const tuesday = da.data.tuesday ? '平日' : '休日';
@@ -30,25 +32,25 @@ export default function Defaultassign({ da }: { da: DefaultAssign }) {
             <div className="grid grid-rows-2 gap-5 bg-white">
               <div className="grid h-[200px] grid-cols-4 p-2 text-center">
                 <div className="p-1">
-                  <div>日曜</div>
+                  <div className={da.data.sunday ? trueDate : falseDate}>日曜</div>
                   <Button variant="outlined" href="#" className={da.data.sunday ? trueStyle : falseStyle}>
                     {sunday}
                   </Button>
                 </div>
                 <div className="p-1">
-                  <div>月曜</div>
+                  <div className={da.data.monday ? trueDate : falseDate}>月曜</div>
                   <Button variant="outlined" href="#" className={da.data.monday ? trueStyle : falseStyle}>
                     {monday}
                   </Button>
                 </div>
                 <div className="p-1">
-                  <div>火曜</div>
+                  <div className={da.data.tuesday ? trueDate : falseDate}>火曜</div>
                   <Button variant="outlined" href="#" className={da.data.tuesday ? trueStyle : falseStyle}>
                     {tuesday}
                   </Button>
                 </div>
                 <div className="p-1">
-                  <div>水曜</div>
+                  <div className={da.data.wednesday ? trueDate : falseDate}>水曜</div>
                   <Button variant="outlined" href="#" className={da.data.wednesday ? trueStyle : falseStyle}>
                     {wednesday}
                   </Button>
@@ -56,25 +58,25 @@ export default function Defaultassign({ da }: { da: DefaultAssign }) {
               </div>
               <div className="grid grid-cols-4 p-2 text-center">
                 <div className="p-1">
-                  <div>木曜</div>
+                  <div className={da.data.thursday ? trueDate : falseDate}>木曜</div>
                   <Button variant="outlined" href="#" className={da.data.thursday ? trueStyle : falseStyle}>
                     {thursday}
                   </Button>
                 </div>
                 <div className="p-1">
-                  <div>金曜</div>
+                  <div className={da.data.friday ? trueDate : falseDate}>金曜</div>
                   <Button variant="outlined" href="#" className={da.data.friday ? trueStyle : falseStyle}>
                     {friday}
                   </Button>
                 </div>
                 <div className="p-1">
-                  <div>土曜</div>
+                  <div className={da.data.saturday ? trueDate : falseDate}>土曜</div>
                   <Button variant="outlined" href="#" className={da.data.saturday ? trueStyle : falseStyle}>
                     {saturday}
                   </Button>
                 </div>
                 <div className="p-1">
-                  <div>祝日</div>
+                  <div className={da.data.holiday ? trueDate : falseDate}>祝日</div>
                   <Button variant="outlined" href="#" className={da.data.holiday ? trueStyle : falseStyle}>
                     {holiday}
                   </Button>

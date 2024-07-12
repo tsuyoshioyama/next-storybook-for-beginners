@@ -4,7 +4,16 @@ import { Button, MenuItem, Paper, Table, TextField, Typography } from '@mui/mate
 import { HolidayData } from './types';
 
 export default function Holiday({ sh }: { sh: HolidayData }) {
-  console.log(sh.data);
+  const publicHoliday: HolidayData = { data: [] };
+  const nationalHoliday: HolidayData = { data: [] };
+  for (let i = 0; i < sh.data.length; i++) {
+    if (sh.data[i].isNationalHoliday) {
+      nationalHoliday.data.push(sh.data[i]);
+    } else {
+      publicHoliday.data.push(sh.data[i]);
+    }
+  }
+
   const currentYear = new Date().getFullYear();
   const selectYear = [
     { label: (currentYear - 2).toString() + '年', value: (currentYear - 2).toString() },
@@ -48,13 +57,13 @@ export default function Holiday({ sh }: { sh: HolidayData }) {
                 </tr>
               </thead>
               <tbody>
-                {sh.data.map((shd) => (
+                {publicHoliday.data.map((phd) => (
                   <tr
-                    key={shd.id}
+                    key={phd.id}
                     className="border-x-0 border-b-[1px] border-t-0 border-solid border-slate-200 px-2 text-left"
                   >
-                    <td>{shd.date}</td>
-                    <td>{shd.name}</td>
+                    <td>{phd.date}</td>
+                    <td>{phd.name}</td>
                     <td className="text-right">
                       <Button variant="outlined" size="medium">
                         編集
@@ -78,15 +87,20 @@ export default function Holiday({ sh }: { sh: HolidayData }) {
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-x-0 border-b-[1px] border-t-0 border-solid border-slate-200 px-2 text-left">
-                  <td>2021-01-01</td>
-                  <td>元旦</td>
-                  <td className="text-right">
-                    <Button variant="outlined" size="medium">
-                      編集
-                    </Button>
-                  </td>
-                </tr>
+                {nationalHoliday.data.map((nhd) => (
+                  <tr
+                    key={nhd.id}
+                    className="border-x-0 border-b-[1px] border-t-0 border-solid border-slate-200 px-2 text-left"
+                  >
+                    <td>{nhd.date}</td>
+                    <td>{nhd.name}</td>
+                    <td className="text-right">
+                      <Button variant="outlined" size="medium">
+                        編集
+                      </Button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </Table>
           </Paper>

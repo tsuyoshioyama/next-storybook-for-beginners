@@ -3,11 +3,11 @@ import { Button, MenuItem, Paper, Table, TextField, Typography } from '@mui/mate
 import { ManhourData } from './types';
 
 export default function Manhour({ mh }: { mh: ManhourData }) {
-  console.log(mh);
+  const currentYear = new Date().getFullYear();
   const selectYear = [
-    { label: '2000年', value: '2000' },
-    { label: '2001年', value: '2001' },
-    { label: '2024年', value: '2024' },
+    { label: (currentYear - 2).toString() + '年', value: (currentYear - 2).toString() },
+    { label: (currentYear - 1).toString() + '年', value: (currentYear - 1).toString() },
+    { label: currentYear.toString() + '年', value: currentYear.toString() },
   ];
 
   const selectMonth = [
@@ -32,14 +32,14 @@ export default function Manhour({ mh }: { mh: ManhourData }) {
         </Typography>
       </div>
       <div className="flex">
-        <TextField select variant="outlined" label="" className="mx-2 w-1/6" defaultValue="2024">
+        <TextField select variant="outlined" className="mx-2 w-1/6" defaultValue="2024">
           {selectYear.map((year) => (
             <MenuItem key={year.value} value={year.value}>
               {year.label}
             </MenuItem>
           ))}
         </TextField>
-        <TextField select variant="outlined" label="" className="mx-2 w-1/6" defaultValue="1">
+        <TextField select variant="outlined" className="mx-2 w-1/6" defaultValue="1">
           {selectMonth.map((month) => (
             <MenuItem key={month.value} value={month.value}>
               {month.label}
@@ -54,11 +54,11 @@ export default function Manhour({ mh }: { mh: ManhourData }) {
         <Table>
           <thead>
             <tr className="border-x-0 border-b-[1px] border-t-0 border-solid border-slate-200 px-2 text-left text-blue-600">
-              <th className="w-1/2">現場名</th>
-              <th className="w-1/7">現場開始日時</th>
-              <th className="w-1/7">現場最終日時</th>
-              <th className="w-1/7">対象月の工数</th>
-              <th className="w-1/7">総工数</th>
+              <th className="w-1/2 p-2">現場名</th>
+              <th className="w-1/7 p-2">現場開始日時</th>
+              <th className="w-1/7 p-2">現場最終日時</th>
+              <th className="w-1/7 p-2">対象月の工数</th>
+              <th className="w-1/7 p-2">総工数</th>
             </tr>
           </thead>
           <tbody>

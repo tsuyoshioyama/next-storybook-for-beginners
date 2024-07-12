@@ -1,10 +1,10 @@
 import AddIcon from '@mui/icons-material/Add';
 import { Button, MenuItem, Paper, Table, TextField, Typography } from '@mui/material';
 
-import { settingHolidayData } from './types';
+import { HolidayData } from './types';
 
-export default function SettingHoliday({ shd }: { shd: settingHolidayData }) {
-  console.log(shd);
+export default function Holiday({ sh }: { sh: HolidayData }) {
+  console.log(sh.data);
   const currentYear = new Date().getFullYear();
   const selectYear = [
     { label: (currentYear - 2).toString() + '年', value: (currentYear - 2).toString() },
@@ -48,15 +48,20 @@ export default function SettingHoliday({ shd }: { shd: settingHolidayData }) {
                 </tr>
               </thead>
               <tbody>
-                <tr className="border-x-0 border-b-[1px] border-t-0 border-solid border-slate-200 px-2 text-left">
-                  <td>2021-01-02</td>
-                  <td>正月休み</td>
-                  <td className="text-right">
-                    <Button variant="outlined" size="medium">
-                      編集
-                    </Button>
-                  </td>
-                </tr>
+                {sh.data.map((shd) => (
+                  <tr
+                    key={shd.id}
+                    className="border-x-0 border-b-[1px] border-t-0 border-solid border-slate-200 px-2 text-left"
+                  >
+                    <td>{shd.date}</td>
+                    <td>{shd.name}</td>
+                    <td className="text-right">
+                      <Button variant="outlined" size="medium">
+                        編集
+                      </Button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </Table>
           </Paper>

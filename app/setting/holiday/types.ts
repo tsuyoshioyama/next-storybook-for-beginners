@@ -1,5 +1,5 @@
-export interface settingHolidayData {
-  date: {
+export interface HolidayData {
+  data: {
     id: number;
     date: string;
     name: string;

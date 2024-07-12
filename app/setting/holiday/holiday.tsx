@@ -40,7 +40,7 @@ export default function Holiday({ sh }: { sh: HolidayData }) {
             </Button>
           </div>
           <div>
-            <Button variant="contained" color="primary" size="medium" endIcon={<AddIcon />} href="#" className="">
+            <Button variant="contained" color="primary" size="medium" endIcon={<AddIcon />} href="#">
               休日を登録
             </Button>
           </div>
@@ -51,9 +51,9 @@ export default function Holiday({ sh }: { sh: HolidayData }) {
             <Table>
               <thead>
                 <tr className="border-x-0 border-b-[1px] border-t-0 border-solid border-slate-200 px-2 text-left text-blue-600">
-                  <th className="w-2/5">日付</th>
-                  <th className="w-2/5">休日名</th>
-                  <th className="w-1/5 text-right"></th>
+                  <th className="w-2/5 py-2">日付</th>
+                  <th className="w-2/5 py-2">休日名</th>
+                  <th className="w-1/5 py-2 text-right"></th>
                 </tr>
               </thead>
               <tbody>
@@ -62,9 +62,9 @@ export default function Holiday({ sh }: { sh: HolidayData }) {
                     key={phd.id}
                     className="border-x-0 border-b-[1px] border-t-0 border-solid border-slate-200 px-2 text-left"
                   >
-                    <td>{phd.date}</td>
-                    <td>{phd.name}</td>
-                    <td className="text-right">
+                    <td className="py-2">{phd.date}</td>
+                    <td className="py-2">{phd.name}</td>
+                    <td className="py-2 text-right">
                       <Button variant="outlined" size="medium">
                         編集
                       </Button>
@@ -81,9 +81,9 @@ export default function Holiday({ sh }: { sh: HolidayData }) {
             <Table>
               <thead>
                 <tr className="border-x-0 border-b-[1px] border-t-0 border-solid border-slate-200 px-2 text-left text-blue-600">
-                  <th className="w-2/5">日付</th>
-                  <th className="w-2/5">休日名</th>
-                  <th className="w-1/5 text-right"></th>
+                  <th className="w-2/5 py-2">日付</th>
+                  <th className="w-2/5 py-2">休日名</th>
+                  <th className="w-1/5 py-2 text-right"></th>
                 </tr>
               </thead>
               <tbody>
@@ -92,9 +92,9 @@ export default function Holiday({ sh }: { sh: HolidayData }) {
                     key={nhd.id}
                     className="border-x-0 border-b-[1px] border-t-0 border-solid border-slate-200 px-2 text-left"
                   >
-                    <td>{nhd.date}</td>
-                    <td>{nhd.name}</td>
-                    <td className="text-right">
+                    <td className="py-2">{nhd.date}</td>
+                    <td className="py-2">{nhd.name}</td>
+                    <td className="py-2 text-right">
                       <Button variant="outlined" size="medium">
                         編集
                       </Button>

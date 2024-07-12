@@ -38,7 +38,7 @@ export default function Manhour({ mh }: { mh: ManhourData }) {
               select
               size="small"
               variant="outlined"
-              className="mr-2 w-1/6"
+              className="mr-2 w-1/6 bg-white"
               defaultValue={currentYear.toString()}
             >
               {selectYear.map((year) => (
@@ -47,7 +47,7 @@ export default function Manhour({ mh }: { mh: ManhourData }) {
                 </MenuItem>
               ))}
             </TextField>
-            <TextField select size="small" variant="outlined" className="mr-2 w-1/6" defaultValue="1">
+            <TextField select size="small" variant="outlined" className="mr-2 w-1/6 bg-white" defaultValue="1">
               {selectMonth.map((month) => (
                 <MenuItem key={month.value} value={month.value}>
                   {month.label}

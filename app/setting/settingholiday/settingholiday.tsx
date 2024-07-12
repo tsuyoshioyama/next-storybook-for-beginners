@@ -1,38 +1,90 @@
 import AddIcon from '@mui/icons-material/Add';
-import { Button, MenuItem, Paper, TextField, Typography } from '@mui/material';
+import { Button, MenuItem, Paper, Table, TextField, Typography } from '@mui/material';
 
-export default function SettingHoliday() {
+import { settingHolidayData } from './types';
+
+export default function SettingHoliday({ shd }: { shd: settingHolidayData }) {
+  console.log(shd);
   const currentYear = new Date().getFullYear();
+  const selectYear = [
+    { label: (currentYear - 2).toString() + '年', value: (currentYear - 2).toString() },
+    { label: (currentYear - 1).toString() + '年', value: (currentYear - 1).toString() },
+    { label: currentYear.toString() + '年', value: currentYear.toString() },
+  ];
   return (
     <div className="px-3 pt-3">
-      <div className="bg-indigo-200 pb-10 pt-5">
+      <div className="pb-10 pt-5">
         <Typography component="h3" variant="h5" color="primary" className="mb-6 text-center font-bold">
           カレンダー休日設定
         </Typography>
-        <div className="mb-6 grid grid-cols-3 bg-red-300">
-          <TextField
-            //select
-            size="small"
-            variant="outlined"
-            className=""
-            defaultValue={currentYear.toString()}
-          >
-            プルダウンメニュー
-          </TextField>
-          <Button variant="outlined" size="medium">
-            表示
-          </Button>
-          <Button variant="contained" color="primary" size="medium" endIcon={<AddIcon />} href="#">
-            休日を登録
-          </Button>
+        <div className="mb-6 flex justify-between">
+          <div>
+            <TextField select size="small" variant="outlined" className="mr-3" defaultValue={currentYear.toString()}>
+              {selectYear.map((year) => (
+                <MenuItem key={year.value} value={year.value}>
+                  {year.label}
+                </MenuItem>
+              ))}
+            </TextField>
+            <Button variant="outlined" size="medium">
+              表示
+            </Button>
+          </div>
+          <div>
+            <Button variant="contained" color="primary" size="medium" endIcon={<AddIcon />} href="#" className="">
+              休日を登録
+            </Button>
+          </div>
         </div>
-        <div className="flex justify-between bg-slate-200">
-          <Typography>公休</Typography>
-          <Paper className="px-10 pb-10 pt-5 shadow-lg">表</Paper>
+        <div className="mb-6 flex justify-between">
+          <Typography className="text-lg">公休</Typography>
+          <Paper className="w-3/4 px-10 pb-10 pt-5 shadow-lg">
+            <Table>
+              <thead>
+                <tr className="border-x-0 border-b-[1px] border-t-0 border-solid border-slate-200 px-2 text-left text-blue-600">
+                  <th className="w-2/5">日付</th>
+                  <th className="w-2/5">休日名</th>
+                  <th className="w-1/5 text-right"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-x-0 border-b-[1px] border-t-0 border-solid border-slate-200 px-2 text-left">
+                  <td>2021-01-02</td>
+                  <td>正月休み</td>
+                  <td className="text-right">
+                    <Button variant="outlined" size="medium">
+                      編集
+                    </Button>
+                  </td>
+                </tr>
+              </tbody>
+            </Table>
+          </Paper>
         </div>
         <div className="flex justify-between">
-          <Typography>祝日</Typography>
-          <Paper className="px-10 pb-10 pt-5 shadow-lg">表</Paper>
+          <Typography className="text-lg">祝日</Typography>
+          <Paper className="w-3/4 px-10 pb-10 pt-5 shadow-lg">
+            <Table>
+              <thead>
+                <tr className="border-x-0 border-b-[1px] border-t-0 border-solid border-slate-200 px-2 text-left text-blue-600">
+                  <th className="w-2/5">日付</th>
+                  <th className="w-2/5">休日名</th>
+                  <th className="w-1/5 text-right"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-x-0 border-b-[1px] border-t-0 border-solid border-slate-200 px-2 text-left">
+                  <td>2021-01-01</td>
+                  <td>元旦</td>
+                  <td className="text-right">
+                    <Button variant="outlined" size="medium">
+                      編集
+                    </Button>
+                  </td>
+                </tr>
+              </tbody>
+            </Table>
+          </Paper>
         </div>
       </div>
     </div>
